@@ -35,8 +35,9 @@ export interface RangeSliderProps {
 
 
 export interface CustomSearchBarProps {
+    regular?: boolean;
     placeholder?: string;
+    mobileClickEvent?: () => void;
     onSearchChange?: (value: string) => void;
     options?: { label: string; value: string }[];
-    mobileClickEvent?: () => void;
 }

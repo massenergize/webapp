@@ -13,6 +13,7 @@ export const customStyles: StylesConfig = {
         height: "100%",
         minHeight: "unset",
         border: "none",
+        outline: "none",
         boxShadow: "none",
         backgroundColor: state.isDisabled ? "#F6F8FA" : "#FFF"
     }),

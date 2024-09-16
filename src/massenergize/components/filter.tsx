@@ -1,7 +1,7 @@
 "use client"
 // global imports
 import { FC, useEffect, useState } from "react";
-import { RiAddCircleFill, RiAddLine, RiArrowDropDownLine } from "@remixicon/react";
+import { RiAddCircleFill, RiAddLine, RiArrowDropDownLine, RiCloseLine } from "@remixicon/react";
 
 // local imports
 import { CustomSearchBarProps, FilterSectionProp, SoftBorderSectionProps } from "@/interfaces";
@@ -15,50 +15,58 @@ const SoftBorderSection: FC<SoftBorderSectionProps> = ({ title, children, shadow
                 <h2 className="text-lg font-medium">{title}</h2>
                 <hr />
             </div>
-            <div>{children}</div>
+            <div className="flex flex-col gap-4">{children}</div>
         </div>
     )
 }
 
 export const BasicFilterSection: FC<CustomSearchBarProps> = ({ options, placeholder, onSearchChange, mobileClickEvent }) => {
     return (
-        <section className="absolute top-[17%] md:top-[23%] w-full flex items-center justify-center">
-            <div className="w-4/5 bg-offWhite py-6 px-5 flex flex-wrap md:flex-nowrap items-center gap-2.5 justify-center rounded-xl">
-                <CustomSearchBar placeholder={placeholder} onSearchChange={onSearchChange} />
-                <div className="hidden px-3 py-1 w-80 md:flex items-center gap-1.5 text-sm bg-white border border-strokeSoft rounded-lg shrink-0">
-                    <RiAddCircleFill className="text-primary" />
-                    <DropdownInput 
-                        placeholder={"Create community / campaign"} 
-                        options={options}
-                    />
+        <div className="w-4/5 bg-offWhite py-6 px-5 flex flex-wrap md:flex-nowrap items-center gap-2.5 justify-center rounded-xl">
+            <CustomSearchBar placeholder={placeholder} onSearchChange={onSearchChange} />
+            <div className="hidden px-3 py-1 w-80 md:flex items-center gap-1.5 text-sm bg-white border border-strokeSoft rounded-lg shrink-0">
+                <RiAddCircleFill className="text-primary" />
+                <DropdownInput 
+                    placeholder={"Create community / campaign"} 
+                    options={options}
+                />
+            </div>
+            <div className="w-full flex items-center gap-8 justify-between md:hidden">
+                <div role="button" onClick={mobileClickEvent} className="flex items-center gap-1">
+                    <span className="underline">Filters</span>
+                    <span><RiArrowDropDownLine /></span>
                 </div>
-                <div className="w-full flex items-center gap-8 justify-between md:hidden">
-                    <div role="button" onClick={mobileClickEvent} className="flex items-center gap-1">
-                        <span className="underline">Filters</span>
-                        <span><RiArrowDropDownLine /></span>
-                    </div>
-                    <div className="flex items-center gap-1 text-primary">
-                        <RiAddLine size={18} />
-                        <span>Add</span>
-                    </div>
+                <div className="flex items-center gap-1 text-primary">
+                    <RiAddLine size={18} />
+                    <span>Add</span>
                 </div>
             </div>
-        </section>
+        </div>
     )
 }
 
-export const FilterSection: FC<FilterSectionProp> = ({ filterItems, applyFilters, clearFilters }) => {
+export const FilterSection: FC<FilterSectionProp> = ({ filterItems, applyFilters, clearFilters, onClose }) => {
     const [selectedState, setSelectedState] = useState("");
     const [selectedZip, setSelectedZip] = useState("");
 
     const [selectedDistance, setSelectedDistance] = useState(0);
     const [allZipCodes, setAllZipCodes] = useState<string[]>([]);
 
+    const [stateSearch, setStateSearch] = useState("");
+    const [zipSearch, setZipSearch] = useState("");
+
     useEffect(() => {
         const zipCodes = filterItems?.flatMap((item) => item.zipCodes);
         const uniqueZipCodes = [...new Set(zipCodes)];
         setAllZipCodes(uniqueZipCodes);
     }, [filterItems]);
+
+    const filteredStates = filterItems?.filter(item =>
+        item.name.toLowerCase().includes(stateSearch.toLowerCase())
+    );
+    const filteredZipCodes = allZipCodes.filter(zip =>
+        zip.includes(zipSearch)
+    );
 
     const handleStateChange = (value: string) => {
         setSelectedState(value);
@@ -85,28 +93,30 @@ export const FilterSection: FC<FilterSectionProp> = ({ filterItems, applyFilters
     };
 
     return (
-        <section className="hidden md:w-2/5 md:flex flex-col gap-4 text-textPrimary">
-            <div className="flex flex-col gap-3">
+        <section className="flex flex-col gap-4 text-textPrimary">
+            <div className="md:flex md:flex-col md:gap-3">
                 <div className="flex items-center gap-8 justify-between">
                     <h2 className="text-xl font-medium">Filters</h2>
-                    <p role="button" onClick={handleClear} className="text-textSecondary">Clear</p>
+                    <p role="button" onClick={handleClear} className="hidden md:block text-textSecondary">Clear</p>
+                    <RiCloseLine role="button" onClick={onClose} className="md:hidden" />
                 </div>
-                <hr />
+                <hr className="hidden md:block" />
             </div>
             <div className="flex flex-col gap-6">
                 <SoftBorderSection shadow title={"State"}>
-                    <>
-                    {filterItems?.map((item, index) => (
-                        <CustomCheckBox 
-                            key={index}
-                            name={item.name}
-                            value={item.name}
-                            label={item.name}
-                            checked={selectedState === item.name}
-                            handleCheckChange={() => handleStateChange(item.name)}
-                        />
-                    ))}
-                    </>
+                    <CustomSearchBar placeholder="Search state" onSearchChange={setStateSearch} regular />
+                    <div className="flex flex-col gap-2">
+                        {filteredStates?.map((item, index) => (
+                            <CustomCheckBox 
+                                key={index}
+                                name={item.name}
+                                value={item.name}
+                                label={item.name}
+                                checked={selectedState === item.name}
+                                handleCheckChange={() => handleStateChange(item.name)}
+                            />
+                        ))}
+                    </div>
                 </SoftBorderSection>
                 <SoftBorderSection shadow title={"Around me"}>
                     <div className="flex flex-col gap-2">
@@ -118,18 +128,19 @@ export const FilterSection: FC<FilterSectionProp> = ({ filterItems, applyFilters
                     </div>
                 </SoftBorderSection>
                 <SoftBorderSection shadow title={"Zip codes"}>
-                    <>
-                    {allZipCodes.map((zip, index) => (
-                        <CustomCheckBox
-                            key={index}
-                            name={zip}
-                            value={zip}
-                            label={zip}
-                            checked={selectedZip === zip}
-                            handleCheckChange={() => handleZipChange(zip)}
-                        />
-                    ))}
-                    </>
+                    <CustomSearchBar placeholder="Search zip codes" onSearchChange={setZipSearch} regular />
+                    <div className="flex flex-col gap-2">
+                        {filteredZipCodes.map((zip, index) => (
+                            <CustomCheckBox
+                                key={index}
+                                name={zip}
+                                value={zip}
+                                label={zip}
+                                checked={selectedZip === zip}
+                                handleCheckChange={() => handleZipChange(zip)}
+                            />
+                        ))}
+                    </div>
                 </SoftBorderSection>
             </div>
             <div className="w-full flex items-center gap-2.5">

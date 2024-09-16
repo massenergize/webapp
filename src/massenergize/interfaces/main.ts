@@ -13,6 +13,7 @@ export interface FilterSectionProp {
     control?: Control<any>;
     errors?: FieldErrors;
     filterItems?: any[];
+    onClose?: () => void;
     clearFilters: () => void;
     applyFilters: (filters: { state: string; zipCode: string; distance: number }) => void;
 }
