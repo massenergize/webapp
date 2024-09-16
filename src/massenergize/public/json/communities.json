@@ -1,0 +1,234 @@
+{
+  "communities": [
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "MA - Energize Action",
+      "locations": ["Acton"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "01720",
+      "distance": 10
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "Metrowest Goes Electrical",
+      "locations": ["Acton", "Framingham", "Natick", "Wayland"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "01702",
+      "distance": 15
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Boston Green Initiative",
+      "locations": ["Boston"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "02108",
+      "distance": 10
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "South Shore Solar Projects",
+      "locations": ["Plymouth", "Braintree", "Quincy"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "02360",
+      "distance": 20
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Green Worcester Plan",
+      "locations": ["Worcester"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "01608",
+      "distance": 10
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "Renewable Energy for Cambridge",
+      "locations": ["Cambridge", "Somerville"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "02138",
+      "distance": 10
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "North Shore Coastal Cleanup",
+      "locations": ["Salem", "Gloucester"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "01970",
+      "distance": 15
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "Green Transportation Initiative",
+      "locations": ["Newton", "Brookline"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "02459",
+      "distance": 20
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Central MA Tree Planting",
+      "locations": ["Shrewsbury", "Westborough"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "01545",
+      "distance": 20
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "Energy Efficient Housing in Amherst",
+      "locations": ["Amherst", "Northampton"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "01002",
+      "distance": 15
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Cape Cod Wind Power",
+      "locations": ["Barnstable", "Falmouth"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "02601",
+      "distance": 15
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "Western MA Solar Initiative",
+      "locations": ["Springfield", "Holyoke"],
+      "link": "Join",
+      "state": "Massachusetts",
+      "zipCode": "01103",
+      "distance": 20
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "California Renewable Energy",
+      "locations": ["Los Angeles"],
+      "link": "Join",
+      "state": "California",
+      "zipCode": "39901",
+      "distance": 15
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "CA - Solar Expansion",
+      "locations": ["San Diego"],
+      "link": "Join",
+      "state": "California",
+      "zipCode": "52809",
+      "distance": 20
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Delaware Coastal Cleanup",
+      "locations": ["Dover"],
+      "link": "Join",
+      "state": "Delaware",
+      "zipCode": "73001",
+      "distance": 15
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "Hawaii Clean Energy",
+      "locations": ["Honolulu"],
+      "link": "Join",
+      "state": "Hawaii",
+      "zipCode": "20042",
+      "distance": 10
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Kentucky Green Farm Initiative",
+      "locations": ["Lexington"],
+      "link": "Join",
+      "state": "Kentucky",
+      "zipCode": "75001",
+      "distance": 25
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "South Dakota Solar",
+      "locations": ["Aberdeen"],
+      "link": "Join",
+      "state": "South Dakota",
+      "zipCode": "57401",
+      "distance": 15
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Maine Wind Power Project",
+      "locations": ["Portland"],
+      "link": "Join",
+      "state": "Maine",
+      "zipCode": "04001",
+      "distance": 30
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "New Mexico Solar Farms",
+      "locations": ["Santa Fe"],
+      "link": "Join",
+      "state": "New Mexico",
+      "zipCode": "87501",
+      "distance": 20
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "Illinois Clean Air Initiative",
+      "locations": ["Chicago"],
+      "link": "Join",
+      "state": "Illinois",
+      "zipCode": "60601",
+      "distance": 10
+    },
+    {
+      "photoUrl": "/communities/2.png",
+      "type": "Campaign",
+      "title": "South Dakota Green City",
+      "locations": ["Rapid City"],
+      "link": "Join",
+      "state": "South Dakota",
+      "zipCode": "57701",
+      "distance": 40
+    },
+    {
+      "photoUrl": "/communities/1.png",
+      "type": "Community",
+      "title": "California Wind Initiative",
+      "locations": ["San Francisco"],
+      "link": "Join",
+      "state": "California",
+      "zipCode": "33631",
+      "distance": 30
+    }
+  ]
+}

@@ -17,6 +17,14 @@ const config: Config = {
           500: '#0070F3',
           600: '#2F6FEB',
         },
+        green: {
+          400: "#64B058"
+        },
+        primary: "#DC4E34",
+        offWhite: "#F4F3F0",
+        textPrimary: "#0E121B",
+        textSecondary: "#525866",
+        strokeSoft: "#E1E4EA",
       },
     },
     keyframes: {
