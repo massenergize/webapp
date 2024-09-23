@@ -1,3 +1,3 @@
 export type { CommunityCardProps } from "./cards";
 export type { FilterSectionProp, SoftBorderSectionProps } from "./main";
-export type { CustomButtonProps, CustomCheckBoxProps, CustomInputProps, CustomSearchBarProps, RangeSliderProps } from "./input";
+export type { CustomButtonProps, CustomCheckBoxProps, CustomInputProps, CustomOptionProps, CustomSearchBarProps, RangeSliderProps } from "./input";

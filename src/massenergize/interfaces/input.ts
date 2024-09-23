@@ -2,6 +2,11 @@
 import { Control, FieldErrors } from "react-hook-form";
 
 
+export interface CustomOptionProps { 
+    label: string; 
+    value: string 
+}
+
 export interface CustomButtonProps {
     label: string;
     clickEvent: () => void;
@@ -12,7 +17,7 @@ export interface CustomButtonProps {
 export interface CustomInputProps {
     placeholder?: string;
     onOptionChange?: (value: any) => void;
-    options?: { label: string; value: string }[];
+    options?: CustomOptionProps[];
 }
 
 
@@ -39,5 +44,5 @@ export interface CustomSearchBarProps {
     placeholder?: string;
     mobileClickEvent?: () => void;
     onSearchChange?: (value: string) => void;
-    options?: { label: string; value: string }[];
+    options?: CustomOptionProps[];
 }

@@ -1,11 +1,12 @@
 "use client"
 // global imports
 import { FC, useEffect, useState } from "react";
+import { List, ListItemButton, ListItemText, Popover } from "@mui/material";
 import { RiAddCircleFill, RiAddLine, RiArrowDropDownLine, RiCloseLine } from "@remixicon/react";
 
 // local imports
-import { CustomSearchBarProps, FilterSectionProp, SoftBorderSectionProps } from "@/interfaces";
 import { CustomButton, CustomCheckBox, CustomSearchBar, DropdownInput, RangeSlider } from ".";
+import { CustomOptionProps, CustomSearchBarProps, FilterSectionProp, SoftBorderSectionProps } from "@/interfaces";
 
 
 const SoftBorderSection: FC<SoftBorderSectionProps> = ({ title, children, shadow }) => {
@@ -21,6 +22,24 @@ const SoftBorderSection: FC<SoftBorderSectionProps> = ({ title, children, shadow
 }
 
 export const BasicFilterSection: FC<CustomSearchBarProps> = ({ options, placeholder, onSearchChange, mobileClickEvent }) => {
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const handleSelect = (item: string) => {
+        setSelectedItem(item);
+        handleClose();
+    };
+    
+    const open = Boolean(anchorEl);
+    const id = open ? "simple-popover" : undefined;
+
     return (
         <div className="w-4/5 bg-offWhite py-6 px-5 flex flex-wrap md:flex-nowrap items-center gap-2.5 justify-center rounded-xl">
             <CustomSearchBar placeholder={placeholder} onSearchChange={onSearchChange} />
@@ -36,10 +55,36 @@ export const BasicFilterSection: FC<CustomSearchBarProps> = ({ options, placehol
                     <span className="underline">Filters</span>
                     <span><RiArrowDropDownLine /></span>
                 </div>
-                <div className="flex items-center gap-1 text-primary">
+                <div role="button" onClick={handleClick} className="flex items-center gap-1 text-primary">
                     <RiAddLine size={18} />
                     <span>Add</span>
                 </div>
+                <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClose}
+                    anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "left",
+                    }}
+                    slotProps={{
+                        paper: {
+                            sx: {
+                                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.2)",
+                                borderRadius: "8px",
+                            },
+                        },
+                    }}
+                >
+                    <List>
+                        {options?.map((option: CustomOptionProps, index: number) => (
+                            <ListItemButton key={index} onClick={() => handleSelect(option.value)} sx={{ px: 2 }}>
+                                <ListItemText primary={option.label} />
+                            </ListItemButton>
+                        ))}
+                    </List>
+                </Popover>
             </div>
         </div>
     )
